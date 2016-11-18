@@ -10,7 +10,7 @@ class PokemonApi
   def self.request(path, given_options = {})
     options = REQUEST_DEFAULTS.merge(given_options)
 
-    response = Rails.cache.fetch(path, expires_in: 12.hours) do
+    response = Rails.cache.fetch(path, expires_in: 48.hours) do
       uri = self.uri(path)
       Net::HTTP.get_response(uri)
     end
